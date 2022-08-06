@@ -1,39 +1,33 @@
 <form [formGroup]="form">
   <div class="mb-10">
-    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Email address</label>
     <input
       id="email"
       type="email"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      class="border text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500"
       formControlName="email"
       autocomplete="off"
     />
     <ng-container *ngIf="form.controls.email.dirty">
-      <p *ngIf="form.controls.email.valid" class="mt-2 text-sm text-green-600 dark:text-green-500 absolute">
-        Alright! Email available!
-      </p>
-      <p *ngIf="form.controls.email.invalid" class="mt-2 text-sm text-red-600 dark:text-red-500 absolute">
-        Oh no! Email invalid!
-      </p>
+      <p *ngIf="form.controls.email.valid" class="mt-2 text-sm text-green-500 absolute">Alright! Email available!</p>
+      <p *ngIf="form.controls.email.invalid" class="mt-2 text-sm text-red-500 absolute">Oh no! Email invalid!</p>
     </ng-container>
   </div>
   <div class="mb-10">
-    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
+    <label for="password" class="block mb-2 text-sm font-medium text-gray-300">Password</label>
     <input
       type="password"
       id="password"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:border-blue-500"
       formControlName="password"
       autocomplete="off"
     />
     <ng-container *ngIf="form.controls.password.dirty">
-      <p *ngIf="form.controls.password.valid" class="mt-2 text-sm text-green-600 dark:text-green-500 absolute">
-        Password looks OK!
-      </p>
-      <p *ngIf="form.controls.password.pending" class="mt-2 text-sm text-yellow-600 dark:text-yellow-500 absolute">
+      <p *ngIf="form.controls.password.valid" class="mt-2 text-sm text-green-500 absolute">Password looks OK!</p>
+      <p *ngIf="form.controls.password.pending" class="mt-2 text-sm text-yellow-500 absolute">
         Validation in progress... Please wait.
       </p>
-      <p *ngIf="form.controls.password.invalid" class="mt-2 text-sm text-red-600 dark:text-red-500 absolute">
+      <p *ngIf="form.controls.password.invalid" class="mt-2 text-sm text-red-500 absolute">
         Password is too risky! Try to write something more secure.
       </p>
     </ng-container>
@@ -42,7 +36,7 @@
   <div>
     <button
       type="submit"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer disabled:cursor-not-allowed disabled:hover:bg-gray-500 disabled:bg-gray-500"
+      class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800 cursor-pointer disabled:cursor-not-allowed disabled:hover:bg-gray-500 disabled:bg-gray-500"
       [disabled]="!form.valid"
       (click)="onSubmit()"
     >
@@ -50,13 +44,13 @@
     </button>
 
     <span
-      class="ml-5 bg-blue-100 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200"
-      [class.dark:bg-green-200]="form.status === 'VALID'"
-      [class.dark:text-green-900]="form.status === 'VALID'"
-      [class.dark:bg-yellow-200]="form.status === 'PENDING'"
-      [class.dark:text-yellow-900]="form.status === 'PENDING'"
-      [class.dark:bg-red-200]="form.status === 'INVALID'"
-      [class.dark:text-red-900]="form.status === 'INVALID'"
+      class="ml-5 text-sm font-medium mr-2 px-2.5 py-0.5 rounded bg-blue-200"
+      [class.bg-green-200]="form.status === 'VALID'"
+      [class.text-green-900]="form.status === 'VALID'"
+      [class.bg-yellow-200]="form.status === 'PENDING'"
+      [class.text-yellow-900]="form.status === 'PENDING'"
+      [class.bg-red-200]="form.status === 'INVALID'"
+      [class.text-red-900]="form.status === 'INVALID'"
     >
       {{ form.status }}
     </span>
